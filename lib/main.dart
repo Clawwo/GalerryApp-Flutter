@@ -4,6 +4,7 @@ void main() {
   runApp(const MyApp());
 }
 
+// MyApp adalah StatefulWidget untuk mengelola tema aplikasi
 class MyApp extends StatefulWidget {
   const MyApp({super.key});
 
@@ -12,6 +13,9 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+  // State untuk tema (mode terang atau gelap)
+  bool isDarkMode = false;
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -19,31 +23,55 @@ class _MyAppState extends State<MyApp> {
       title: 'Gallery App',
       theme: ThemeData(
         primarySwatch: Colors.blue,
+        brightness: isDarkMode ? Brightness.dark : Brightness.light,
       ),
-      home: const GalleryScreen(),
+      home: GalleryScreen(
+        onToggleTheme: () {
+          setState(() {
+            isDarkMode = !isDarkMode; // Ubah tema saat tombol ditekan
+          });
+        },
+      ),
     );
   }
 }
 
-class GalleryScreen extends StatelessWidget {
-  const GalleryScreen({super.key});
+// GalleryScreen adalah layar utama yang menampilkan galeri gambar
+class GalleryScreen extends StatefulWidget {
+  final VoidCallback onToggleTheme; // Callback untuk mengubah tema
+
+  const GalleryScreen({super.key, required this.onToggleTheme});
+
+  @override
+  _GalleryScreenState createState() => _GalleryScreenState();
+}
+
+class _GalleryScreenState extends State<GalleryScreen> {
+  // Daftar gambar
+  final List<String> images = [
+    'assets/images/gunung.jpg',
+    'assets/images/gunung.jpg',
+    'assets/images/gunung.jpg',
+    'assets/images/gunung.jpg',
+    'assets/images/gunung.jpg',
+    'assets/images/gunung.jpg',
+  ];
+
+  // Status 'liked' untuk setiap gambar
+  final List<bool> likedStatus = List<bool>.filled(6, false);
 
   @override
   Widget build(BuildContext context) {
-    // Daftar gambar
-    final List<String> images = [
-      'assets/images/gunung.jpg',
-      'assets/images/gunung.jpg',
-      'assets/images/gunung.jpg',
-      'assets/images/gunung.jpg',
-      'assets/images/gunung.jpg',
-      'assets/images/gunung.jpg',
-    ];
-
     return Scaffold(
       appBar: AppBar(
         title: const Text('Gallery App'),
         centerTitle: true,
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.brightness_6),
+            onPressed: widget.onToggleTheme, // Ubah tema saat tombol ditekan
+          ),
+        ],
       ),
       body: GridView.builder(
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
@@ -66,9 +94,34 @@ class GalleryScreen extends StatelessWidget {
                 ),
               );
             },
-            child: Image.asset(
-              images[index],
-              fit: BoxFit.cover, // Atur gambar agar pas di grid
+            child: Stack(
+              children: [
+                // Gambar
+                Positioned.fill(
+                  child: Image.asset(
+                    images[index],
+                    fit: BoxFit.cover,
+                  ),
+                ),
+                // Ikon 'like'
+                Positioned(
+                  top: 8.0,
+                  right: 8.0,
+                  child: IconButton(
+                    icon: Icon(
+                      likedStatus[index]
+                          ? Icons.favorite
+                          : Icons.favorite_border,
+                      color: likedStatus[index] ? Colors.red : Colors.white,
+                    ),
+                    onPressed: () {
+                      setState(() {
+                        likedStatus[index] = !likedStatus[index];
+                      });
+                    },
+                  ),
+                ),
+              ],
             ),
           );
         },
@@ -77,6 +130,7 @@ class GalleryScreen extends StatelessWidget {
   }
 }
 
+// ImageDetailScreen adalah layar detail untuk menampilkan gambar
 class ImageDetailScreen extends StatelessWidget {
   final String imagePath;
 
@@ -89,7 +143,10 @@ class ImageDetailScreen extends StatelessWidget {
         title: const Text('Image Detail'),
       ),
       body: Center(
-        child: Image.asset(imagePath),
+        child: Hero(
+          tag: imagePath,
+          child: Image.asset(imagePath),
+        ),
       ),
     );
   }
