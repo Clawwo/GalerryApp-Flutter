@@ -1,6 +1,27 @@
-# galeri_gambar
+# Gallery App 📸
 
-A new Flutter project.
+Gallery App is a Flutter app that allows users to view image galleries, view image details, and like images. The app supports both light and dark theme modes, providing an interactive and modern experience.
+
+## Features 🛠️
+
+1. **Image Gallery** 
+Displays a collection of images in a grid format.
+
+2. **Image Details** 
+Users can tap on an image to view it in detail view.
+
+3. **Like Images** 
+Users can like an image by tapping the heart icon, and the like status will be reflected visually.
+
+4. **Dark & ​​Light Theme** 
+Users can switch between dark and light themes via the button at the top of the app.
+
+## Technologies Used 🧰
+
+- **Framework**: [Flutter](https://flutter.dev)
+- **Programming Language**: Dart
+- **State Management**: StatefulWidget to manage state
+- **Hero Animation**: For transitions between image pages
 
 ## Getting Started
 
