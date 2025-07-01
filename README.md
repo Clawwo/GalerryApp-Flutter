@@ -51,7 +51,7 @@ cd GalerryApp-Flutter
 ```bash
 flutter pub get
 ```
-4. Run the App
+### 4. Run the App
 ```bash
 flutter run
 ```
