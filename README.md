@@ -1,37 +1,68 @@
-# Gallery App 📸
+# 📸 Gallery App
 
-Gallery App is a Flutter app that allows users to view image galleries, view image details, and like images. The app supports both light and dark theme modes, providing an interactive and modern experience.
+**Gallery App** is a Flutter-based mobile application that displays a collection of images in a grid format. It allows users to view images in detail, like their favorites, and toggle between light and dark themes. The app provides a clean and interactive user interface using Flutter's modern capabilities.
 
-## Features 🛠️
+---
 
-1. **Image Gallery** 
-Displays a collection of images in a grid format.
+## ✨ Features
 
-2. **Image Details** 
-Users can tap on an image to view it in detail view.
+- **🖼️ Image Gallery**  
+  Displays a collection of images in a responsive grid layout.
 
-3. **Like Images** 
-Users can like an image by tapping the heart icon, and the like status will be reflected visually.
+- **🔍 Image Details View**  
+  Tap an image to open a detailed full-screen view with smooth Hero transitions.
 
-4. **Dark & ​​Light Theme** 
-Users can switch between dark and light themes via the button at the top of the app.
+- **❤️ Like Images**  
+  Users can like or unlike images, with visual feedback using an animated heart icon.
 
-## Technologies Used 🧰
+- **🌗 Light & Dark Theme Support**  
+  Toggle between light and dark mode via a button in the app bar.
+
+---
+
+## 🧰 Built With
 
 - **Framework**: [Flutter](https://flutter.dev)
-- **Programming Language**: Dart
-- **State Management**: StatefulWidget to manage state
-- **Hero Animation**: For transitions between image pages
+- **Language**: Dart
+- **State Management**: `StatefulWidget` for local state updates
+- **Animation**: Hero animations for smooth image transitions
 
-## Getting Started
+---
 
-This project is a starting point for a Flutter application.
+## 🚀 Getting Started
 
-A few resources to get you started if this is your first Flutter project:
+Follow these steps to run the project locally:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+### 1. Prerequisites
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- [Flutter SDK](https://flutter.dev/docs/get-started/install)
+- IDE such as [VS Code](https://code.visualstudio.com/) or [Android Studio](https://developer.android.com/studio)
+- Emulator or physical device
+
+### 2. Clone the Repository
+
+```bash
+git clone https://github.com/your-username/gallery-app.git
+
+cd gallery-app
+```
+
+### 3. Install Dependencies
+```bash
+flutter pub get
+```
+4. Run the App
+```bash
+flutter run
+```
+
+## Screenshot
+- **Main Page**
+![Image](https://github.com/user-attachments/assets/751f3795-8d57-497e-a8d0-bfd9b28020b3)
+
+
+## Developer Identity
+  -  **Name**: Farel Haryanto
+  -  **Email**: farelharynto@gmail.com
+  -  **Linkedin**: https://www.linkedin.com/in/farel-haryanto-790553343/
+  -  **Created on**: 10-11-2024
