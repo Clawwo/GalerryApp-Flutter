@@ -42,9 +42,9 @@ Follow these steps to run the project locally:
 ### 2. Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/gallery-app.git
+git clone https://github.com/Clawwo/GalerryApp-Flutter.git
 
-cd gallery-app
+cd GalerryApp-Flutter
 ```
 
 ### 3. Install Dependencies
@@ -57,7 +57,6 @@ flutter run
 ```
 
 ## Screenshot
-- **Main Page**
 ![Image](https://github.com/user-attachments/assets/751f3795-8d57-497e-a8d0-bfd9b28020b3)
 
 
